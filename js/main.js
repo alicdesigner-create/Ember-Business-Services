@@ -262,7 +262,7 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.service-circle, .step-card, .stat-circle, .contact-info-card').forEach(el => {
+document.querySelectorAll('.service-square, .step-card, .stat-square, .contact-info-card').forEach(el => {
   el.classList.add('reveal');
   revealObserver.observe(el);
 });
@@ -291,29 +291,6 @@ function handleFormSubmit(e) {
     setTimeout(() => success.classList.add('hidden'), 5000);
   }, 800);
 }
-
-/* ---------- Subtle Parallax (hero background) ---------- */
-(function () {
-  const hero = document.getElementById('home');
-  if (!hero) return;
-  // Skip on touch devices for performance
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
-  let ticking = false;
-  window.addEventListener('scroll', function () {
-    if (!ticking) {
-      window.requestAnimationFrame(function () {
-        const scrolled = window.scrollY;
-        if (scrolled < hero.offsetHeight + 80) {
-          hero.style.backgroundPositionY = 'calc(50% + ' + (scrolled * 0.22) + 'px)';
-        }
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-})();
 
 /* ---------- Footer year ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();
