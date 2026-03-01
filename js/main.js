@@ -36,24 +36,24 @@ const translations = {
     'services-label':    'What We Offer',
     'services-title':    'Our Services',
     'services-subtitle': 'Comprehensive administrative and financial support tailored to your business needs.',
-    's1-title': 'Business Registration Assistance',
-    's1-desc':  'Guidance and support through the business registration process to get your business officially established.',
-    's2-title': 'Business Invoicing Setup',
-    's2-desc':  'Set up professional invoicing systems so you get paid on time and maintain clear billing records.',
-    's3-title': 'Accounts Receivable Organization',
-    's3-desc':  'Organize and track money owed to your business so nothing slips through the cracks.',
-    's4-title': 'Accounts Payable Organization',
-    's4-desc':  'Keep your outgoing payments organized and on schedule to maintain strong vendor relationships.',
-    's5-title': 'Business Budget Spreadsheets',
-    's5-desc':  'Custom spreadsheets designed to help you track income, expenses, and financial goals with ease.',
-    's6-title': 'Bookkeeping Support for Accountants',
-    's6-desc':  'Prepare and organize your financial records so your accountant can work more efficiently at tax time.',
+    's1-title': 'Business Registration',
+    's1-desc':  'Expert guidance to register your business officially.',
+    's2-title': 'Invoicing Setup',
+    's2-desc':  'Professional invoicing so you get paid on time.',
+    's3-title': 'Accounts Receivable',
+    's3-desc':  'Track money owed so nothing slips through.',
+    's4-title': 'Accounts Payable',
+    's4-desc':  'Outgoing payments organized and on schedule.',
+    's5-title': 'Budget Spreadsheets',
+    's5-desc':  'Custom spreadsheets for income, expenses, and goals.',
+    's6-title': 'Bookkeeping Support',
+    's6-desc':  'Records organized and ready for your accountant.',
     's7-title': 'Office Organization',
-    's7-desc':  'From digital files to physical documents, get your office systems organized and efficient.',
+    's7-desc':  'Digital files and physical documents organized.',
     's8-title': 'Notary Services',
-    's8-desc':  'Official notarization of important documents for legal and business purposes.',
-    's9-title': 'Translation Assistance (Non-Certified)',
-    's9-desc':  'English-Spanish translation support for business documents and everyday communications.',
+    's8-desc':  'Official notarization for legal documents.',
+    's9-title': 'Translation Assistance',
+    's9-desc':  'English-Spanish support for business documents.',
 
     /* How it Works */
     'how-label':    'Process',
@@ -121,24 +121,24 @@ const translations = {
     'services-label':    'Lo Que Ofrecemos',
     'services-title':    'Nuestros Servicios',
     'services-subtitle': 'Apoyo administrativo y financiero integral adaptado a las necesidades de su negocio.',
-    's1-title': 'Asistencia en el Registro de Negocios',
-    's1-desc':  'Orientación y apoyo a través del proceso de registro de negocios para establecer oficialmente su empresa.',
-    's2-title': 'Configuración de Facturación Empresarial',
-    's2-desc':  'Configure sistemas de facturación profesionales para que reciba pagos a tiempo y mantenga registros claros.',
-    's3-title': 'Organización de Cuentas por Cobrar',
-    's3-desc':  'Organice y realice un seguimiento del dinero que su empresa debe cobrar para que nada se pierda.',
-    's4-title': 'Organización de Cuentas por Pagar',
-    's4-desc':  'Mantenga sus pagos salientes organizados y al día para conservar buenas relaciones con sus proveedores.',
-    's5-title': 'Hojas de Presupuesto Empresarial',
-    's5-desc':  'Hojas de cálculo personalizadas para ayudarle a rastrear ingresos, gastos y metas financieras fácilmente.',
-    's6-title': 'Apoyo Contable para Contadores',
-    's6-desc':  'Prepare y organice sus registros financieros para que su contador pueda trabajar más eficientemente en la temporada de impuestos.',
+    's1-title': 'Registro de Negocios',
+    's1-desc':  'Orientación experta para registrar su empresa oficialmente.',
+    's2-title': 'Configuración de Facturas',
+    's2-desc':  'Facturación profesional para recibir pagos a tiempo.',
+    's3-title': 'Cuentas por Cobrar',
+    's3-desc':  'Rastree el dinero que le deben sin que nada se pierda.',
+    's4-title': 'Cuentas por Pagar',
+    's4-desc':  'Pagos organizados y al día con sus proveedores.',
+    's5-title': 'Presupuestos Empresariales',
+    's5-desc':  'Hojas de cálculo para ingresos, gastos y metas.',
+    's6-title': 'Apoyo Contable',
+    's6-desc':  'Registros organizados y listos para su contador.',
     's7-title': 'Organización de Oficina',
-    's7-desc':  'Desde archivos digitales hasta documentos físicos, organice y optimice los sistemas de su oficina.',
+    's7-desc':  'Archivos digitales y documentos físicos organizados.',
     's8-title': 'Servicios de Notaría',
-    's8-desc':  'Notarización oficial de documentos importantes para propósitos legales y empresariales.',
-    's9-title': 'Asistencia de Traducción (No Certificada)',
-    's9-desc':  'Apoyo de traducción inglés-español para documentos comerciales y comunicaciones cotidianas.',
+    's8-desc':  'Notarización oficial de documentos legales.',
+    's9-title': 'Asistencia de Traducción',
+    's9-desc':  'Apoyo inglés-español para documentos comerciales.',
 
     /* How it Works */
     'how-label':    'Proceso',
@@ -262,7 +262,7 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.service-card, .step-card, .stat-card, .contact-info-card').forEach(el => {
+document.querySelectorAll('.service-circle, .step-card, .stat-circle, .contact-info-card').forEach(el => {
   el.classList.add('reveal');
   revealObserver.observe(el);
 });
@@ -291,6 +291,29 @@ function handleFormSubmit(e) {
     setTimeout(() => success.classList.add('hidden'), 5000);
   }, 800);
 }
+
+/* ---------- Subtle Parallax (hero background) ---------- */
+(function () {
+  const hero = document.getElementById('home');
+  if (!hero) return;
+  // Skip on touch devices for performance
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  let ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        const scrolled = window.scrollY;
+        if (scrolled < hero.offsetHeight + 80) {
+          hero.style.backgroundPositionY = 'calc(50% + ' + (scrolled * 0.22) + 'px)';
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
 
 /* ---------- Footer year ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();
