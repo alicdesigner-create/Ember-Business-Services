@@ -109,6 +109,7 @@ a:hover .flame-icon {
     url('../images/background cff.jpg') center / cover no-repeat;
   position: relative;
   overflow: hidden;
+  will-change: background-position;
 }
 #home::before {
   content: '';

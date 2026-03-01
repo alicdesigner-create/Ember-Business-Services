@@ -292,29 +292,59 @@ function handleFormSubmit(e) {
   }, 800);
 }
 
-/* ---------- How It Works — Parallax ---------- */
+/* ---------- Global Subtle Parallax ---------- */
 (function () {
-  const section = document.getElementById('how-it-works');
-  if (!section) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  const hero     = document.getElementById('home');
+  const howSect  = document.getElementById('how-it-works');
+  const parallaxEls = Array.from(document.querySelectorAll('[data-parallax]'));
+
   let ticking = false;
+
+  function update() {
+    const scrollY = window.scrollY;
+    const winH    = window.innerHeight;
+
+    /* — Hero background (image scrolls slower than page) — */
+    if (hero && scrollY < hero.offsetHeight + 300) {
+      hero.style.backgroundPositionY =
+        'calc(50% + ' + (scrollY * 0.20).toFixed(1) + 'px)';
+    }
+
+    /* — How It Works background parallax — */
+    if (howSect) {
+      const r = howSect.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < winH) {
+        const progress = (winH - r.top) / (winH + r.height); // 0→1
+        const offset   = (progress - 0.5) * 80;              // ±40px
+        howSect.style.backgroundPositionY =
+          'calc(50% + ' + offset.toFixed(1) + 'px)';
+      }
+    }
+
+    /* — Decorative element parallax (data-parallax="speed") — */
+    parallaxEls.forEach(function (el) {
+      const speed = parseFloat(el.getAttribute('data-parallax'));
+      const r     = el.getBoundingClientRect();
+      if (r.bottom > -150 && r.top < winH + 150) {
+        const center = r.top + r.height / 2 - winH / 2;
+        el.style.transform = 'translateY(' + (center * speed).toFixed(1) + 'px)';
+      }
+    });
+
+    ticking = false;
+  }
+
   window.addEventListener('scroll', function () {
     if (!ticking) {
-      window.requestAnimationFrame(function () {
-        const rect    = section.getBoundingClientRect();
-        const winH    = window.innerHeight;
-        if (rect.bottom > 0 && rect.top < winH) {
-          // progress 0 (section enters bottom) → 1 (section leaves top)
-          const progress = (winH - rect.top) / (winH + rect.height);
-          const offset   = (progress - 0.5) * 90; // ±45px range
-          section.style.backgroundPositionY = 'calc(50% + ' + offset.toFixed(1) + 'px)';
-        }
-        ticking = false;
-      });
+      window.requestAnimationFrame(update);
       ticking = true;
     }
   }, { passive: true });
+
+  /* Initial position on page load */
+  update();
 })();
 
 /* ---------- Footer year ---------- */
