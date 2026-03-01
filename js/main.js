@@ -292,6 +292,31 @@ function handleFormSubmit(e) {
   }, 800);
 }
 
+/* ---------- How It Works — Parallax ---------- */
+(function () {
+  const section = document.getElementById('how-it-works');
+  if (!section) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        const rect    = section.getBoundingClientRect();
+        const winH    = window.innerHeight;
+        if (rect.bottom > 0 && rect.top < winH) {
+          // progress 0 (section enters bottom) → 1 (section leaves top)
+          const progress = (winH - rect.top) / (winH + rect.height);
+          const offset   = (progress - 0.5) * 90; // ±45px range
+          section.style.backgroundPositionY = 'calc(50% + ' + offset.toFixed(1) + 'px)';
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+
 /* ---------- Footer year ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();
 

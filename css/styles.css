@@ -205,12 +205,35 @@ a:hover .flame-icon {
 }
 
 /* ---------- How It Works ---------- */
+#how-it-works {
+  background:
+    linear-gradient(rgba(10, 18, 35, 0.62), rgba(10, 18, 35, 0.62)),
+    url('../images/mountains cff.png') center 50% / cover no-repeat;
+  will-change: background-position;
+}
+
+/* Text colors over the mountain image */
+#how-it-works h2,
+#how-it-works h3 {
+  color: #ffffff !important;
+}
+#how-it-works p,
+#how-it-works .text-gray-500 {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+#how-it-works .text-gold {
+  color: #C9A227 !important;
+}
+#how-it-works .w-8.h-0\.5.bg-gold {
+  opacity: 0.9;
+}
+
 .step-card .step-number {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 .step-card:hover .step-number {
   transform: scale(1.05);
-  box-shadow: 0 0 0 8px rgba(201, 162, 39, 0.08);
+  box-shadow: 0 0 0 8px rgba(201, 162, 39, 0.15);
 }
 
 /* ---------- Contact Section ---------- */
