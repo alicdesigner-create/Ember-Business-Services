@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ember Business Services</title>
+  <meta name="description" content="Professional administrative and financial support for small businesses in Henderson, Colorado. Contact Dulce Dorado today." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:    '#0F172A',
+            secondary:  '#2563EB',
+            gold:       '#C9A227',
+            'gold-dark':'#A8841F',
+            emerald:    '#22C55E',
+            bg:         '#F8FAFC',
+            'txt':      '#111827',
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="font-inter bg-bg text-txt">
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary shadow-lg">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-2 group">
+          <span class="flame-icon text-gold" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+              <path fill-rule="evenodd" d="M12.963 2.286a.75.75 0 00-1.071-.136 9.742 9.742 0 00-3.539 6.177A7.547 7.547 0 016.648 6.61a.75.75 0 00-1.152.082A9 9 0 1015.68 4.534a7.46 7.46 0 01-2.717-2.248zM15.75 14.25a3.75 3.75 0 11-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 011.925-3.545 3.75 3.75 0 013.255 3.717z" clip-rule="evenodd" />
+            </svg>
+          </span>
+          <span class="text-white font-bold text-lg leading-tight">
+            Ember<br /><span class="text-gold text-sm font-semibold tracking-wide">Business Services</span>
+          </span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#home"     class="nav-link text-gray-300 hover:text-gold transition-colors duration-200 text-sm font-medium" data-i18n="nav-home">Home</a>
+          <a href="#about"    class="nav-link text-gray-300 hover:text-gold transition-colors duration-200 text-sm font-medium" data-i18n="nav-about">About</a>
+          <a href="#services" class="nav-link text-gray-300 hover:text-gold transition-colors duration-200 text-sm font-medium" data-i18n="nav-services">Services</a>
+          <a href="#contact"  class="nav-link text-gray-300 hover:text-gold transition-colors duration-200 text-sm font-medium" data-i18n="nav-contact">Contact</a>
+
+          <!-- Language Toggle -->
+          <div class="lang-toggle flex items-center gap-1 border border-gray-600 rounded-full px-3 py-1">
+            <button id="lang-en" onclick="setLanguage('en')" class="lang-btn text-xs font-semibold text-gold">EN</button>
+            <span class="text-gray-500 text-xs">|</span>
+            <button id="lang-es" onclick="setLanguage('es')" class="lang-btn text-xs font-semibold text-gray-400">ES</button>
+          </div>
+        </div>
+
+        <!-- Mobile: lang toggle + hamburger -->
+        <div class="flex md:hidden items-center gap-3">
+          <div class="lang-toggle flex items-center gap-1 border border-gray-600 rounded-full px-2 py-1">
+            <button id="lang-en-m" onclick="setLanguage('en')" class="lang-btn text-xs font-semibold text-gold">EN</button>
+            <span class="text-gray-500 text-xs">|</span>
+            <button id="lang-es-m" onclick="setLanguage('es')" class="lang-btn text-xs font-semibold text-gray-400">ES</button>
+          </div>
+          <button id="mobile-menu-btn" class="text-gray-300 hover:text-gold focus:outline-none" aria-label="Toggle menu">
+            <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-700 mt-1 pt-4">
+        <a href="#home"     onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-gold text-sm font-medium" data-i18n="nav-home">Home</a>
+        <a href="#about"    onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-gold text-sm font-medium" data-i18n="nav-about">About</a>
+        <a href="#services" onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-gold text-sm font-medium" data-i18n="nav-services">Services</a>
+        <a href="#contact"  onclick="closeMobileMenu()" class="block py-2 text-gray-300 hover:text-gold text-sm font-medium" data-i18n="nav-contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="home" class="min-h-screen flex items-center bg-primary pt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Left: Text -->
+        <div class="text-white space-y-6 animate-fade-in">
+          <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-4 py-1.5">
+            <span class="text-gold">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                <path fill-rule="evenodd" d="M12.963 2.286a.75.75 0 00-1.071-.136 9.742 9.742 0 00-3.539 6.177A7.547 7.547 0 016.648 6.61a.75.75 0 00-1.152.082A9 9 0 1015.68 4.534a7.46 7.46 0 01-2.717-2.248zM15.75 14.25a3.75 3.75 0 11-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 011.925-3.545 3.75 3.75 0 013.255 3.717z" clip-rule="evenodd" />
+              </svg>
+            </span>
+            <span class="text-gold text-sm font-medium" data-i18n="hero-badge">Henderson, Colorado</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" data-i18n="hero-title">
+            Professional Business Support Services
+          </h1>
+
+          <p class="text-gray-300 text-lg leading-relaxed max-w-lg" data-i18n="hero-subtitle">
+            Helping individuals and small businesses stay organized with administrative and financial support.
+          </p>
+
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="tel:7209486244" class="btn-primary flex items-center gap-2 bg-secondary hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-blue-900/40 hover:-translate-y-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" />
+              </svg>
+              <span data-i18n="hero-btn-call">Call Now</span>
+            </a>
+            <a href="#contact" class="btn-gold flex items-center gap-2 bg-gold hover:bg-gold-dark text-primary px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:-translate-y-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z" clip-rule="evenodd" />
+              </svg>
+              <span data-i18n="hero-btn-book">Book a Consultation</span>
+            </a>
+          </div>
+
+          <!-- Trust badges -->
+          <div class="flex flex-wrap gap-6 pt-4 border-t border-white/10">
+            <div class="flex items-center gap-2 text-gray-400 text-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-gold">
+                <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.491 4.491 0 01-3.497-1.307 4.491 4.491 0 01-1.307-3.497A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.491 4.491 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+              </svg>
+              <span data-i18n="hero-badge1">Bilingual Services</span>
+            </div>
+            <div class="flex items-center gap-2 text-gray-400 text-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-gold">
+                <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.491 4.491 0 01-3.497-1.307 4.491 4.491 0 01-1.307-3.497A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.491 4.491 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+              </svg>
+              <span data-i18n="hero-badge2">Small Business Focused</span>
+            </div>
+            <div class="flex items-center gap-2 text-gray-400 text-sm">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-gold">
+                <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.491 4.491 0 01-3.497-1.307 4.491 4.491 0 01-1.307-3.497A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.491 4.491 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+              </svg>
+              <span data-i18n="hero-badge3">Notary Services</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Photo Placeholder -->
+        <div class="flex justify-center lg:justify-end animate-fade-in-delay">
+          <div class="relative">
+            <div class="photo-placeholder w-72 h-96 sm:w-80 sm:h-[420px] rounded-2xl overflow-hidden border-2 border-gold/30 shadow-2xl shadow-black/50 bg-gradient-to-br from-gray-800 to-gray-900 flex flex-col items-center justify-center gap-4">
+              <div class="w-24 h-24 rounded-full bg-gradient-to-br from-gold/30 to-gold/10 border-2 border-gold/40 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12 text-gold/60">
+                  <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="text-center px-4">
+                <p class="text-gold font-semibold text-sm">Dulce Dorado</p>
+                <p class="text-gray-500 text-xs mt-1" data-i18n="photo-label">Professional Photo</p>
+              </div>
+            </div>
+            <!-- Decorative accent -->
+            <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-gold/10 rounded-full border border-gold/20"></div>
+            <div class="absolute -top-4 -left-4 w-12 h-12 bg-secondary/20 rounded-full border border-secondary/20"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="py-20 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Left: Photo Placeholder -->
+        <div class="flex justify-center lg:justify-start order-2 lg:order-1">
+          <div class="relative">
+            <div class="photo-placeholder-about w-72 h-80 sm:w-80 sm:h-96 rounded-2xl overflow-hidden border border-gray-200 shadow-xl bg-gradient-to-br from-gray-100 to-gray-200 flex flex-col items-center justify-center gap-4">
+              <div class="w-24 h-24 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 border-2 border-gold/30 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12 text-gold/50">
+                  <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div class="text-center px-4">
+                <p class="text-gray-600 font-semibold text-sm">Dulce Dorado</p>
+                <p class="text-gray-400 text-xs mt-1" data-i18n="photo-label2">Professional Photo</p>
+              </div>
+            </div>
+            <div class="about-accent absolute -bottom-6 -right-6 w-24 h-24 bg-gold/10 rounded-2xl border border-gold/20 -z-10"></div>
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="order-1 lg:order-2 space-y-5">
+          <div class="inline-flex items-center gap-2">
+            <div class="w-8 h-0.5 bg-gold"></div>
+            <span class="text-gold text-sm font-semibold tracking-wider uppercase" data-i18n="about-label">About</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-bold text-primary" data-i18n="about-title">Meet Dulce Dorado</h2>
+
+          <p class="text-gray-600 leading-relaxed" data-i18n="about-p1">
+            Dulce Dorado is a dedicated business services professional based in Henderson, Colorado, with a passion for helping small businesses and entrepreneurs thrive. She understands the challenges that come with running a business, from keeping finances in order to managing the everyday administrative tasks that can quickly become overwhelming.
+          </p>
+          <p class="text-gray-600 leading-relaxed" data-i18n="about-p2">
+            With a hands-on, personalized approach, Dulce offers a wide range of support services designed to bring organization and clarity to your business operations. Whether you're just starting out or need help streamlining your existing processes, she provides the tools and guidance to help your business succeed.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="stat-card bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+              <div class="text-2xl font-bold text-secondary">9+</div>
+              <div class="text-gray-500 text-sm mt-1" data-i18n="stat1">Services Offered</div>
+            </div>
+            <div class="stat-card bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
+              <div class="text-2xl font-bold text-gold">EN|ES</div>
+              <div class="text-gray-500 text-sm mt-1" data-i18n="stat2">Bilingual Support</div>
+            </div>
+          </div>
+
+          <a href="#contact" class="inline-flex items-center gap-2 bg-secondary hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:-translate-y-0.5 shadow-md mt-2">
+            <span data-i18n="about-cta">Get in Touch</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+              <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section id="services" class="py-20 bg-primary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="text-center mb-14 space-y-3">
+        <div class="inline-flex items-center gap-2">
+          <div class="w-8 h-0.5 bg-gold"></div>
+          <span class="text-gold text-sm font-semibold tracking-wider uppercase" data-i18n="services-label">What We Offer</span>
+          <div class="w-8 h-0.5 bg-gold"></div>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white" data-i18n="services-title">Our Services</h2>
+        <p class="text-gray-400 max-w-xl mx-auto" data-i18n="services-subtitle">Comprehensive administrative and financial support tailored to your business needs.</p>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1: Business Registration -->
+        <div class="service-card bg-gray-900/70 border border-gray-800 rounded-xl p-6 hover:border-gold/50 hover:-translate-y-1 transition-all duration-300 group">
+          <div class="icon-box w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-4 group-hover:bg-gold/10 group-hover:border-gold/30 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-secondary group-hover:text-gold transition-colors duration-300">
+              <path fill-rule="evenodd" d="M4.125 3C3.089 3 2.25 3.84 2.25 4.875V18a3 3 0 003 3h15a3 3 0 01-3-3V4.875C17.25 3.839 16.41 3 15.375 3H4.125zM12 9.75a.75.75 0 000 1.5h1.5a.75.75 0 000-1.5H12zm-.75-2.25a.75.75 0 01.75-.75h1.5a.75.75 0 010 1.5H12a.75.75 0 01-.75-.75zM6 12.75a.75.75 0 000 1.5h7.5a.75.75 0 000-1.5H6zm-.75 3.75a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5H6a.75.75 0 01-.75-.75zM6 6.75a.75.75 0 00-.75.75v3c0 .414.336.75.75.75h3a.75.75 0 00.75-.75v-3A.75.75 0 009 6.75H6z" clip-rule="evenodd" />
+              <path d="M18.75 6.75h1.875c.621 0 1.125.504 1.125 1.125V18a1.5 1.5 0 01-3 0V6.75z" />
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2" data-i18n="s1-title">Business Registration Assistance</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="s1-desc">Guidance and support through the business registration process to get your business officially established.</p>
+        </div>
+
+        <!-- Card 2: Business Invoicing -->
+        <div class="service-card bg-gray-900/70 border border-gray-800 rounded-xl p-6 hover:border-gold/50 hover:-translate-y-1 transition-all duration-300 group">
+          <div class="icon-box w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-4 group-hover:bg-gold/10 group-hover:border-gold/30 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-secondary group-hover:text-gold transition-colors duration-300">
+              <path d="M10.464 8.746c.227-.18.497-.311.786-.394v2.795a2.252 2.252 0 01-.786-.393c-.394-.313-.546-.681-.546-1.004 0-.323.152-.691.546-1.004zM12.75 15.662v-2.824c.347.085.664.228.921.421.427.32.579.686.579.991 0 .305-.152.671-.579.991a2.534 2.534 0 01-.921.42z" />
+              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v.816a3.836 3.836 0 00-1.72.756c-.712.566-1.112 1.35-1.112 2.178 0 .829.4 1.612 1.113 2.178.502.4 1.102.647 1.719.756v2.978a2.536 2.536 0 01-.921-.421l-.879-.66a.75.75 0 00-.9 1.2l.879.66c.533.4 1.169.645 1.821.75V18a.75.75 0 001.5 0v-.81a4.124 4.124 0 001.821-.749c.745-.559 1.179-1.344 1.179-2.191 0-.847-.434-1.632-1.179-2.191a4.122 4.122 0 00-1.821-.75V8.354c.29.082.559.213.786.393l.415.33a.75.75 0 00.933-1.175l-.415-.33a3.836 3.836 0 00-1.719-.755V6z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2" data-i18n="s2-title">Business Invoicing Setup</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="s2-desc">Set up professional invoicing systems so you get paid on time and maintain clear billing records.</p>
+        </div>
+
+        <!-- Card 3: Accounts Receivable -->
+        <div class="service-card bg-gray-900/70 border border-gray-800 rounded-xl p-6 hover:border-gold/50 hover:-translate-y-1 transition-all duration-300 group">
+          <div class="icon-box w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-4 group-hover:bg-gold/10 group-hover:border-gold/30 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-secondary group-hover:text-gold transition-colors duration-300">
+              <path d="M12 7.5a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z" />
+              <path fill-rule="evenodd" d="M1.5 4.875C1.5 3.839 2.34 3 3.375 3h17.25c1.035 0 1.875.84 1.875 1.875v9.75c0 1.036-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 14.625v-9.75zM8.25 9.75a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0zM18.75 9a.75.75 0 00-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 00.75-.75V9.75a.75.75 0 00-.75-.75h-.008zM4.5 9.75A.75.75 0 015.25 9h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H5.25a.75.75 0 01-.75-.75V9.75z" clip-rule="evenodd" />
+              <path d="M2.25 18a.75.75 0 000 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 00-.75-.75H2.25z" />
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2" data-i18n="s3-title">Accounts Receivable Organization</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="s3-desc">Organize and track money owed to your business so nothing slips through the cracks.</p>
+        </div>
+
+        <!-- Card 4: Accounts Payable -->
+        <div class="service-card bg-gray-900/70 border border-gray-800 rounded-xl p-6 hover:border-gold/50 hover:-translate-y-1 transition-all duration-300 group">
+          <div class="icon-box w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-4 group-hover:bg-gold/10 group-hover:border-gold/30 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-secondary group-hover:text-gold transition-colors duration-300">
+              <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2" data-i18n="s4-title">Accounts Payable Organization</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="s4-desc">Keep your outgoing payments organized and on schedule to maintain strong vendor relationships.</p>
+        </div>
+
+        <!-- Card 5: Budget Spreadsheets -->
+        <div class="service-card bg-gray-900/70 border border-gray-800 rounded-xl p-6 hover:border-gold/50 hover:-translate-y-1 transition-all duration-300 group">
+          <div class="icon-box w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-4 group-hover:bg-gold/10 group-hover:border-gold/30 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-secondary group-hover:text-gold transition-colors duration-300">
+              <path fill-rule="evenodd" d="M2.25 2.25a.75.75 0 000 1.5H3v10.5a3 3 0 003 3h1.21l-1.172 3.513a.75.75 0 001.424.474l.329-.988h8.418l.33.988a.75.75 0 001.422-.474l-1.17-3.513H18a3 3 0 003-3V3.75h.75a.75.75 0 000-1.5H2.25zm6.04 16.5l.5-1.5h6.42l.5 1.5H8.29zm7.46-12a.75.75 0 00-1.5 0v6a.75.75 0 001.5 0v-6zm-3 2.25a.75.75 0 00-1.5 0v3.75a.75.75 0 001.5 0V9zm-3 2.25a.75.75 0 00-1.5 0v1.5a.75.75 0 001.5 0v-1.5z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2" data-i18n="s5-title">Business Budget Spreadsheets</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="s5-desc">Custom spreadsheets designed to help you track income, expenses, and financial goals with ease.</p>
+        </div>
+
+        <!-- Card 6: Bookkeeping Support -->
+        <div class="service-card bg-gray-900/70 border border-gray-800 rounded-xl p-6 hover:border-gold/50 hover:-translate-y-1 transition-all duration-300 group">
+          <div class="icon-box w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-4 group-hover:bg-gold/10 group-hover:border-gold/30 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-secondary group-hover:text-gold transition-colors duration-300">
+              <path d="M11.25 4.533A9.707 9.707 0 006 3a9.735 9.735 0 00-3.25.555.75.75 0 00-.5.707v14.25a.75.75 0 001 .707A8.237 8.237 0 016 18.75c1.995 0 3.823.7 5.25 1.851V4.533zM12.75 20.601A8.235 8.235 0 0118 18.75c.966 0 1.89.166 2.75.47a.75.75 0 001-.708V4.262a.75.75 0 00-.5-.707A9.735 9.735 0 0018 3a9.707 9.707 0 00-5.25 1.533v16.068z" />
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2" data-i18n="s6-title">Bookkeeping Support for Accountants</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="s6-desc">Prepare and organize your financial records so your accountant can work more efficiently at tax time.</p>
+        </div>
+
+        <!-- Card 7: Office Organization -->
+        <div class="service-card bg-gray-900/70 border border-gray-800 rounded-xl p-6 hover:border-gold/50 hover:-translate-y-1 transition-all duration-300 group">
+          <div class="icon-box w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-4 group-hover:bg-gold/10 group-hover:border-gold/30 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-secondary group-hover:text-gold transition-colors duration-300">
+              <path d="M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 00-3-3h-3.879a.75.75 0 01-.53-.22L11.47 3.66A2.25 2.25 0 009.879 3H6a3 3 0 00-3 3v3.162A3.756 3.756 0 014.094 9h15.812zM4.094 10.5a2.25 2.25 0 00-2.227 2.568l.857 6A2.25 2.25 0 004.951 21H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-2.227-2.568H4.094z" />
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2" data-i18n="s7-title">Office Organization</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="s7-desc">From digital files to physical documents, get your office systems organized and efficient.</p>
+        </div>
+
+        <!-- Card 8: Notary Services -->
+        <div class="service-card bg-gray-900/70 border border-gray-800 rounded-xl p-6 hover:border-gold/50 hover:-translate-y-1 transition-all duration-300 group">
+          <div class="icon-box w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-4 group-hover:bg-gold/10 group-hover:border-gold/30 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-secondary group-hover:text-gold transition-colors duration-300">
+              <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2" data-i18n="s8-title">Notary Services</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="s8-desc">Official notarization of important documents for legal and business purposes.</p>
+        </div>
+
+        <!-- Card 9: Translation -->
+        <div class="service-card bg-gray-900/70 border border-gray-800 rounded-xl p-6 hover:border-gold/50 hover:-translate-y-1 transition-all duration-300 group">
+          <div class="icon-box w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-4 group-hover:bg-gold/10 group-hover:border-gold/30 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-secondary group-hover:text-gold transition-colors duration-300">
+              <path fill-rule="evenodd" d="M9 2.25a.75.75 0 01.75.75v1.506a49.38 49.38 0 015.343.371.75.75 0 11-.186 1.489c-.66-.083-1.323-.151-1.99-.206a18.67 18.67 0 01-2.969 6.323c.317.384.65.753 1 1.107a.75.75 0 01-1.07 1.052A18.772 18.772 0 019 13.687a18.823 18.823 0 01-5.656 4.482.75.75 0 11-.688-1.333 17.323 17.323 0 005.396-4.353A18.72 18.72 0 015.89 8.598a.75.75 0 011.388-.568A17.21 17.21 0 009 11.224a17.17 17.17 0 002.391-5.165 48.038 48.038 0 00-8.298.307.75.75 0 01-.186-1.489 49.159 49.159 0 015.343-.371V3A.75.75 0 019 2.25zM15.75 9a.75.75 0 01.68.433l5.25 11.25a.75.75 0 01-1.36.634l-1.198-2.567h-6.744l-1.198 2.567a.75.75 0 01-1.36-.634l5.25-11.25A.75.75 0 0115.75 9zm-2.672 8.25h5.344l-2.672-5.726-2.672 5.726z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h3 class="text-white font-semibold text-lg mb-2" data-i18n="s9-title">Translation Assistance (Non-Certified)</h3>
+          <p class="text-gray-400 text-sm leading-relaxed" data-i18n="s9-desc">English-Spanish translation support for business documents and everyday communications.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section id="how-it-works" class="py-20 bg-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-14 space-y-3">
+        <div class="inline-flex items-center gap-2">
+          <div class="w-8 h-0.5 bg-gold"></div>
+          <span class="text-gold text-sm font-semibold tracking-wider uppercase" data-i18n="how-label">Process</span>
+          <div class="w-8 h-0.5 bg-gold"></div>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-primary" data-i18n="how-title">How It Works</h2>
+        <p class="text-gray-500 max-w-xl mx-auto" data-i18n="how-subtitle">Getting started is simple. Three easy steps to a more organized business.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <!-- Connector line (desktop) -->
+        <div class="hidden md:block absolute top-10 left-1/3 right-1/3 h-0.5 bg-gradient-to-r from-secondary to-gold opacity-30"></div>
+
+        <!-- Step 1 -->
+        <div class="step-card text-center space-y-4 relative">
+          <div class="step-number w-20 h-20 rounded-full bg-secondary/10 border-2 border-secondary flex items-center justify-center mx-auto relative">
+            <span class="text-secondary font-bold text-2xl">1</span>
+            <div class="absolute -top-1 -right-1 w-5 h-5 bg-gold rounded-full border-2 border-white"></div>
+          </div>
+          <h3 class="text-xl font-bold text-primary" data-i18n="step1-title">Contact Us</h3>
+          <p class="text-gray-500 leading-relaxed" data-i18n="step1-desc">Reach out by phone or fill out our contact form. We're here to answer your questions and discuss how we can help.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card text-center space-y-4 relative">
+          <div class="step-number w-20 h-20 rounded-full bg-gold/10 border-2 border-gold flex items-center justify-center mx-auto relative">
+            <span class="text-gold font-bold text-2xl">2</span>
+            <div class="absolute -top-1 -right-1 w-5 h-5 bg-secondary rounded-full border-2 border-white"></div>
+          </div>
+          <h3 class="text-xl font-bold text-primary" data-i18n="step2-title">Discuss Your Needs</h3>
+          <p class="text-gray-500 leading-relaxed" data-i18n="step2-desc">We'll have a conversation about your business, your current challenges, and which services are the right fit for you.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card text-center space-y-4 relative">
+          <div class="step-number w-20 h-20 rounded-full bg-emerald/10 border-2 border-emerald flex items-center justify-center mx-auto relative">
+            <span class="text-emerald font-bold text-2xl">3</span>
+            <div class="absolute -top-1 -right-1 w-5 h-5 bg-gold rounded-full border-2 border-white"></div>
+          </div>
+          <h3 class="text-xl font-bold text-primary" data-i18n="step3-title">Get Organized</h3>
+          <p class="text-gray-500 leading-relaxed" data-i18n="step3-desc">We get to work! Simplify your business operations, reduce stress, and focus on what you do best while we handle the rest.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="py-20 bg-primary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-12 space-y-3">
+        <div class="inline-flex items-center gap-2">
+          <div class="w-8 h-0.5 bg-gold"></div>
+          <span class="text-gold text-sm font-semibold tracking-wider uppercase" data-i18n="contact-label">Reach Us</span>
+          <div class="w-8 h-0.5 bg-gold"></div>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white" data-i18n="contact-title">Get In Touch</h2>
+        <p class="text-gray-400 max-w-lg mx-auto" data-i18n="contact-subtitle">Ready to get your business organized? Contact us today and let's talk about how we can help.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+
+        <!-- Left: Contact Info -->
+        <div class="space-y-6">
+
+          <div class="contact-info-card bg-gray-900/70 border border-gray-800 rounded-xl p-6 space-y-5">
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-secondary">
+                  <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-gray-400 text-sm" data-i18n="ci-phone-label">Phone</p>
+                <a href="tel:7209486244" class="text-white font-semibold text-lg hover:text-gold transition-colors">720-948-6244</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-gold">
+                  <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-gray-400 text-sm" data-i18n="ci-location-label">Location</p>
+                <p class="text-white font-semibold text-lg">Henderson, Colorado</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-emerald/10 border border-emerald/20 flex items-center justify-center flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-emerald">
+                  <path fill-rule="evenodd" d="M9 2.25a.75.75 0 01.68.433l5.25 11.25a.75.75 0 01-1.36.634l-1.198-2.567h-6.744l-1.198 2.567a.75.75 0 01-1.36-.634l5.25-11.25A.75.75 0 019 2.25zm-2.672 8.25h5.344L9 5.774 6.328 10.5z" clip-rule="evenodd" />
+                  <path d="M15.75 9a.75.75 0 01.68.433l5.25 11.25a.75.75 0 01-1.36.634l-1.198-2.567h-6.744l-1.198 2.567a.75.75 0 01-1.36-.634l5.25-11.25A.75.75 0 0115.75 9zm-2.672 8.25h5.344l-2.672-5.726-2.672 5.726z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-gray-400 text-sm" data-i18n="ci-lang-label">Languages</p>
+                <p class="text-white font-semibold text-lg" data-i18n="ci-lang-value">English &amp; Spanish</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="tel:7209486244" class="flex items-center justify-center gap-3 w-full bg-gold hover:bg-gold-dark text-primary px-6 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:-translate-y-0.5 shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd" />
+            </svg>
+            <span data-i18n="contact-btn-call">Call Now: 720-948-6244</span>
+          </a>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="bg-gray-900/70 border border-gray-800 rounded-xl p-8">
+          <h3 class="text-white font-semibold text-xl mb-6" data-i18n="form-title">Send a Message</h3>
+          <form id="contact-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+
+            <div>
+              <label class="block text-gray-400 text-sm mb-1.5" data-i18n="form-name-label">Name</label>
+              <input type="text" id="form-name" data-i18n-placeholder="form-name-placeholder" placeholder="Your full name" required
+                class="w-full bg-gray-800 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-4 py-3 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors" />
+            </div>
+
+            <div>
+              <label class="block text-gray-400 text-sm mb-1.5" data-i18n="form-email-label">Email</label>
+              <input type="email" id="form-email" data-i18n-placeholder="form-email-placeholder" placeholder="your@email.com" required
+                class="w-full bg-gray-800 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-4 py-3 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors" />
+            </div>
+
+            <div>
+              <label class="block text-gray-400 text-sm mb-1.5" data-i18n="form-message-label">Message</label>
+              <textarea id="form-message" data-i18n-placeholder="form-message-placeholder" placeholder="Tell us about your business and how we can help..." rows="4" required
+                class="w-full bg-gray-800 border border-gray-700 text-white placeholder-gray-500 rounded-lg px-4 py-3 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors resize-none"></textarea>
+            </div>
+
+            <button type="submit" id="form-submit-btn"
+              class="w-full bg-secondary hover:bg-blue-700 text-white px-6 py-3.5 rounded-lg font-semibold transition-all duration-200 hover:-translate-y-0.5 shadow-md flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+              </svg>
+              <span data-i18n="form-submit">Send Message</span>
+            </button>
+
+            <!-- Success message (hidden by default) -->
+            <div id="form-success" class="hidden bg-emerald/10 border border-emerald/30 rounded-lg px-4 py-3 text-emerald text-sm text-center" data-i18n="form-success">
+              Thank you! Your message has been sent. We'll be in touch soon.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="bg-gray-950 border-t border-gray-800 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <span class="text-gold">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path fill-rule="evenodd" d="M12.963 2.286a.75.75 0 00-1.071-.136 9.742 9.742 0 00-3.539 6.177A7.547 7.547 0 016.648 6.61a.75.75 0 00-1.152.082A9 9 0 1015.68 4.534a7.46 7.46 0 01-2.717-2.248zM15.75 14.25a3.75 3.75 0 11-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 011.925-3.545 3.75 3.75 0 013.255 3.717z" clip-rule="evenodd" />
+            </svg>
+          </span>
+          <div>
+            <div class="text-white font-bold text-sm">Ember Business Services</div>
+            <div class="text-gray-500 text-xs">Henderson, Colorado &bull; 720-948-6244</div>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div class="flex gap-6">
+          <a href="#home"     class="text-gray-500 hover:text-gold text-sm transition-colors" data-i18n="nav-home">Home</a>
+          <a href="#about"    class="text-gray-500 hover:text-gold text-sm transition-colors" data-i18n="nav-about">About</a>
+          <a href="#services" class="text-gray-500 hover:text-gold text-sm transition-colors" data-i18n="nav-services">Services</a>
+          <a href="#contact"  class="text-gray-500 hover:text-gold text-sm transition-colors" data-i18n="nav-contact">Contact</a>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-gray-600 text-sm text-center">
+          &copy; <span id="year"></span> Ember Business Services.
+          <span data-i18n="footer-rights">All rights reserved.</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
