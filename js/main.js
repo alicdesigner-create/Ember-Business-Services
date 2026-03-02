@@ -35,7 +35,7 @@ const translations = {
     /* Services */
     'services-label':    'What We Offer',
     'services-title':    'Our Services',
-    'services-subtitle': 'Comprehensive administrative and financial support tailored to your business needs.',
+    'services-subtitle': 'Expert administrative and financial support to help your business run smoothly.',
     's1-title': 'Business Registration',
     's1-desc':  'Expert guidance to register your business officially.',
     's2-title': 'Invoicing Setup',
