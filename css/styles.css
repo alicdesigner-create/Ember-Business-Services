@@ -372,6 +372,20 @@ button:focus-visible {
   }
 }
 
+/* ---- Hero Photo Square ---- */
+.photo-square-hero {
+  width: 300px;
+  height: 360px;
+  border-radius: 1.5rem;
+  border: 2px solid rgba(201, 162, 39, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .photo-square-hero { width: 240px; height: 288px; }
+}
+
 /* ---- About Photo Square ---- */
 .photo-square-about {
   width: 300px;
