@@ -338,11 +338,11 @@ button:focus-visible {
   flex-shrink: 0;
 }
 
-/* Bottom image area */
+/* Bottom image area — fixed height so all cards are consistent */
 .service-square .card-image {
-  flex: 1;
+  height: 195px;
+  flex-shrink: 0;
   overflow: hidden;
-  min-height: 0;
 }
 .service-square .card-image img {
   width: 100%;
@@ -405,6 +405,15 @@ button:focus-visible {
   .services-square-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+  }
+  .service-square {
+    height: 300px;
+  }
+  .service-square .card-image {
+    height: 150px;
+  }
+  .service-square .card-header {
+    padding: 1rem 0.75rem 0.75rem;
   }
 }
 
