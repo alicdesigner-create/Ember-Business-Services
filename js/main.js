@@ -87,6 +87,65 @@ const translations = {
 
     /* Footer */
     'footer-rights': 'All rights reserved.',
+
+    /* Card close button */
+    'card-close': 'Close',
+
+    /* Service detail — Business Registration */
+    's1-detail-intro': 'Expert legal guidance for company formation and compliance. We assist with:',
+    's1-detail-1': 'Business Registration with the Colorado Secretary of State.',
+    's1-detail-2': 'EIN Application Assistance via the IRS webpage.',
+    's1-detail-3': 'Business License Guidance and document preparation as needed.',
+    's1-detail-4': 'Strategic advice on choosing the right business structure (LLC, Corp).',
+
+    /* Service detail — Business Invoicing Setup */
+    's2-detail-intro': 'Implementation of professional billing systems to ensure you get paid on time.',
+    's2-detail-1': 'Create professional invoice templates customized for your brand.',
+    's2-detail-2': 'Set up digital invoicing systems to automate your billing process.',
+    's2-detail-3': 'Add your business logo and essential details for a premium look.',
+    's2-detail-4': 'Guidance on tracking payments and sending invoices directly to clients.',
+
+    /* Service detail — Accounts Receivable */
+    's3-detail-intro': 'Set up systems to track and manage the money customers owe your business.',
+    's3-detail-1': 'Organize customer payment records to maintain a clear history.',
+    's3-detail-2': 'Monitor unpaid invoices to ensure no revenue is overlooked.',
+    's3-detail-3': 'Improve cash flow tracking by identifying payment trends.',
+    's3-detail-4': 'Maintain an up-to-date financial overview of your pending income.',
+
+    /* Service detail — Accounts Payable */
+    's4-detail-intro': 'Strategic organization of the bills and expenses your business must pay.',
+    's4-detail-1': 'Track vendor invoices and manage payment schedules effectively.',
+    's4-detail-2': 'Organize business bills to avoid late payments and penalties.',
+    's4-detail-3': 'Categorize expenses to simplify tax preparation and financial reporting.',
+    's4-detail-4': 'Keep a clear record of all outgoing payments for better cash flow management.',
+
+    /* Service detail — Bookkeeping Support */
+    's6-detail-intro': 'Organized and accurate financial records to keep your business on track.',
+    's6-detail-1': 'Record daily transactions to maintain an up-to-date financial history.',
+    's6-detail-2': 'Categorize income and expenses for clearer financial reporting.',
+    's6-detail-3': 'Prepare organized records ready for your accountant or tax professional.',
+    's6-detail-4': 'Identify financial trends to support smarter business decisions.',
+
+    /* Service detail — Office Organization */
+    's7-detail-intro': 'Efficient systems to bring order to your business files and documents.',
+    's7-detail-1': 'Create a structured digital filing system for easy document access.',
+    's7-detail-2': 'Organize physical documents and records for quick retrieval.',
+    's7-detail-3': 'Implement consistent naming conventions and folder structures.',
+    's7-detail-4': 'Save time and reduce stress with well-organized business workflows.',
+
+    /* Service detail — Notary Services */
+    's8-detail-intro': 'Professional notarization to authenticate your important legal documents.',
+    's8-detail-1': 'Notarize contracts, affidavits, powers of attorney, and other legal documents.',
+    's8-detail-2': 'Provide a secure, legally recognized notary seal and signature.',
+    's8-detail-3': 'Available for individuals and businesses in the Henderson, Colorado area.',
+    's8-detail-4': 'Bilingual notary services offered in both English and Spanish.',
+
+    /* Service detail — Translation Assistance */
+    's9-detail-intro': 'Accurate English-Spanish translation support for your business communications.',
+    's9-detail-1': 'Translate business documents, contracts, and correspondence with precision.',
+    's9-detail-2': 'Provide bilingual assistance during client meetings or consultations.',
+    's9-detail-3': 'Ensure clear communication between English and Spanish-speaking parties.',
+    's9-detail-4': 'Help you reach a broader, bilingual customer base with confidence.',
   },
 
   es: {
@@ -172,6 +231,65 @@ const translations = {
 
     /* Footer */
     'footer-rights': 'Todos los derechos reservados.',
+
+    /* Card close button */
+    'card-close': 'Cerrar',
+
+    /* Service detail — Registro de Negocios */
+    's1-detail-intro': 'Orientación legal experta para la formación y cumplimiento de su empresa. Le asistimos con:',
+    's1-detail-1': 'Registro del negocio ante la Secretaría de Estado de Colorado.',
+    's1-detail-2': 'Asistencia en la solicitud de EIN a través de la página del IRS.',
+    's1-detail-3': 'Orientación para licencias comerciales y preparación de documentos.',
+    's1-detail-4': 'Asesoría estratégica para elegir la estructura empresarial correcta (LLC, Corp).',
+
+    /* Service detail — Configuración de Facturas */
+    's2-detail-intro': 'Implementación de sistemas de facturación profesional para garantizar que reciba sus pagos a tiempo.',
+    's2-detail-1': 'Cree plantillas de facturas profesionales personalizadas para su marca.',
+    's2-detail-2': 'Configure sistemas de facturación digital para automatizar su proceso de cobro.',
+    's2-detail-3': 'Agregue su logotipo y datos esenciales para una presentación de calidad.',
+    's2-detail-4': 'Orientación sobre seguimiento de pagos y envío de facturas directamente a sus clientes.',
+
+    /* Service detail — Cuentas por Cobrar */
+    's3-detail-intro': 'Implemente sistemas para rastrear y gestionar el dinero que sus clientes le deben.',
+    's3-detail-1': 'Organice los registros de pagos de clientes para mantener un historial claro.',
+    's3-detail-2': 'Monitoree facturas sin pagar para garantizar que ningún ingreso se pierda.',
+    's3-detail-3': 'Mejore el seguimiento del flujo de caja identificando tendencias de pago.',
+    's3-detail-4': 'Mantenga un panorama financiero actualizado de sus ingresos pendientes.',
+
+    /* Service detail — Cuentas por Pagar */
+    's4-detail-intro': 'Organización estratégica de las facturas y gastos que su negocio debe pagar.',
+    's4-detail-1': 'Rastree facturas de proveedores y gestione calendarios de pago de forma eficiente.',
+    's4-detail-2': 'Organice las cuentas del negocio para evitar pagos tardíos y penalizaciones.',
+    's4-detail-3': 'Categorice los gastos para simplificar la preparación de impuestos e informes financieros.',
+    's4-detail-4': 'Mantenga un registro claro de todos los pagos realizados para una mejor gestión del flujo de caja.',
+
+    /* Service detail — Apoyo Contable */
+    's6-detail-intro': 'Registros financieros organizados y precisos para mantener su negocio en orden.',
+    's6-detail-1': 'Registre transacciones diarias para mantener un historial financiero actualizado.',
+    's6-detail-2': 'Categorice ingresos y gastos para reportes financieros más claros.',
+    's6-detail-3': 'Prepare registros organizados y listos para su contador o profesional de impuestos.',
+    's6-detail-4': 'Identifique tendencias financieras para apoyar decisiones comerciales más inteligentes.',
+
+    /* Service detail — Organización de Oficina */
+    's7-detail-intro': 'Sistemas eficientes para poner orden en los archivos y documentos de su negocio.',
+    's7-detail-1': 'Cree un sistema de archivos digitales estructurado para acceso fácil a documentos.',
+    's7-detail-2': 'Organice documentos físicos y registros para recuperarlos rápidamente.',
+    's7-detail-3': 'Implemente convenciones de nomenclatura y estructuras de carpetas consistentes.',
+    's7-detail-4': 'Ahorre tiempo y reduzca el estrés con flujos de trabajo empresariales bien organizados.',
+
+    /* Service detail — Servicios de Notaría */
+    's8-detail-intro': 'Notarización profesional para autenticar sus documentos legales importantes.',
+    's8-detail-1': 'Notarice contratos, declaraciones juradas, poderes notariales y otros documentos legales.',
+    's8-detail-2': 'Proporcione un sello y firma notarial seguro y legalmente reconocido.',
+    's8-detail-3': 'Disponible para individuos y empresas en el área de Henderson, Colorado.',
+    's8-detail-4': 'Servicios de notaría bilingüe en inglés y español.',
+
+    /* Service detail — Asistencia de Traducción */
+    's9-detail-intro': 'Apoyo de traducción inglés-español preciso para sus comunicaciones comerciales.',
+    's9-detail-1': 'Traduzca documentos comerciales, contratos y correspondencia con precisión.',
+    's9-detail-2': 'Brinde asistencia bilingüe durante reuniones o consultas con clientes.',
+    's9-detail-3': 'Garantice una comunicación clara entre partes de habla inglesa y española.',
+    's9-detail-4': 'Ayúdele a llegar a una base de clientes bilingüe más amplia con confianza.',
   }
 };
 
@@ -346,6 +464,38 @@ function handleFormSubmit(e) {
   /* Initial position on page load */
   update();
 })();
+
+/* ---------- Service Card Expansion ---------- */
+function toggleServiceCard(card) {
+  var isExpanded = card.classList.contains('expanded');
+
+  // Collapse any currently open card
+  document.querySelectorAll('.service-square.expanded').forEach(function(c) {
+    c.classList.remove('expanded');
+  });
+
+  // If the clicked card was not already expanded, expand it
+  if (!isExpanded) {
+    card.classList.add('expanded');
+
+    // Scroll so the expanded card is fully visible
+    setTimeout(function() {
+      var rect = card.getBoundingClientRect();
+      var navH = document.getElementById('navbar').offsetHeight;
+      if (rect.bottom > window.innerHeight) {
+        window.scrollTo({
+          top: window.scrollY + rect.bottom - window.innerHeight + 32,
+          behavior: 'smooth'
+        });
+      } else if (rect.top < navH) {
+        window.scrollTo({
+          top: window.scrollY + rect.top - navH - 16,
+          behavior: 'smooth'
+        });
+      }
+    }, 420);
+  }
+}
 
 /* ---------- Footer year ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();

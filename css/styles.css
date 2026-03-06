@@ -308,8 +308,8 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  cursor: default;
-  height: 360px;
+  cursor: pointer;
+  min-height: 360px;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 .service-square:hover {
@@ -340,9 +340,10 @@ button:focus-visible {
 
 /* Bottom image area — fixed height so all cards are consistent */
 .service-square .card-image {
-  height: 195px;
+  max-height: 195px;
   flex-shrink: 0;
   overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
 }
 .service-square .card-image img {
   width: 100%;
@@ -400,6 +401,7 @@ button:focus-visible {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  align-items: start;
 }
 @media (max-width: 640px) {
   .services-square-grid {
@@ -407,10 +409,10 @@ button:focus-visible {
     gap: 1rem;
   }
   .service-square {
-    height: 300px;
+    min-height: 300px;
   }
   .service-square .card-image {
-    height: 150px;
+    max-height: 150px;
   }
   .service-square .card-header {
     padding: 1rem 0.75rem 0.75rem;
@@ -469,4 +471,109 @@ button:focus-visible {
 .stat-square:hover {
   box-shadow: 0 6px 24px rgba(37, 99, 235, 0.12);
   transform: translateY(-2px);
+}
+
+/* =======================================================
+   Service Card Expansion
+   ======================================================= */
+
+/* Expanded card: no lift, gold ring */
+.service-square.expanded {
+  transform: none !important;
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.55),
+              0 20px 50px rgba(0, 0, 0, 0.15);
+  cursor: default;
+}
+
+/* Hide short description when expanded */
+.service-square.expanded .card-header > p {
+  display: none;
+}
+
+/* Collapse image when expanded */
+.service-square.expanded .card-image {
+  max-height: 0 !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Expanded content area */
+.card-expanded {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  padding: 0 1.25rem;
+  transition: max-height 0.5s ease, opacity 0.3s ease 0.18s, padding 0.3s ease;
+}
+.service-square.expanded .card-expanded {
+  max-height: 640px;
+  opacity: 1;
+  padding: 0 1.25rem 1.25rem;
+}
+
+/* Detail intro paragraph */
+.detail-intro {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: #374151;
+  margin-bottom: 0.85rem;
+}
+
+/* Bullet list */
+.detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.detail-list li {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #475569;
+  padding-left: 1.1rem;
+  position: relative;
+}
+.detail-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #C9A227;
+  font-size: 0.68rem;
+  top: 0.15rem;
+}
+
+/* Collapse button */
+.card-collapse-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.55rem;
+  background: rgba(201, 162, 39, 0.08);
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  border-radius: 0.5rem;
+  color: #A8841F;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 0.25rem;
+  font-family: 'Inter', sans-serif;
+}
+.card-collapse-btn:hover {
+  background: rgba(201, 162, 39, 0.16);
+}
+.card-collapse-btn svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* Mobile: smaller detail text */
+@media (max-width: 640px) {
+  .detail-intro { font-size: 0.76rem; }
+  .detail-list li { font-size: 0.72rem; }
 }
