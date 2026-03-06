@@ -465,37 +465,61 @@ function handleFormSubmit(e) {
   update();
 })();
 
-/* ---------- Service Card Expansion ---------- */
-function toggleServiceCard(card) {
-  var isExpanded = card.classList.contains('expanded');
+/* ---------- Service Modal ---------- */
+var serviceModal = document.getElementById('service-modal');
 
-  // Collapse any currently open card
-  document.querySelectorAll('.service-square.expanded').forEach(function(c) {
-    c.classList.remove('expanded');
-  });
+function openServiceModal(card) {
+  var serviceId = card.getAttribute('data-service');
+  var t = translations[currentLanguage];
 
-  // If the clicked card was not already expanded, expand it
-  if (!isExpanded) {
-    card.classList.add('expanded');
+  // Image
+  var cardImg = card.querySelector('.card-image img');
+  var modalImg = document.getElementById('modal-img');
+  modalImg.src = cardImg.src;
+  modalImg.alt = cardImg.alt;
 
-    // Scroll so the expanded card is fully visible
-    setTimeout(function() {
-      var rect = card.getBoundingClientRect();
-      var navH = document.getElementById('navbar').offsetHeight;
-      if (rect.bottom > window.innerHeight) {
-        window.scrollTo({
-          top: window.scrollY + rect.bottom - window.innerHeight + 32,
-          behavior: 'smooth'
-        });
-      } else if (rect.top < navH) {
-        window.scrollTo({
-          top: window.scrollY + rect.top - navH - 16,
-          behavior: 'smooth'
-        });
-      }
-    }, 420);
+  // Icon (clone inner SVG from card)
+  var cardIcon = card.querySelector('.square-icon');
+  var modalIcon = document.getElementById('modal-icon');
+  modalIcon.innerHTML = cardIcon.innerHTML;
+
+  // Title
+  document.getElementById('modal-title').textContent = t[serviceId + '-title'] || '';
+
+  // Intro
+  document.getElementById('modal-intro').textContent = t[serviceId + '-detail-intro'] || '';
+
+  // Bullet list
+  var list = document.getElementById('modal-list');
+  list.innerHTML = '';
+  for (var i = 1; i <= 4; i++) {
+    var key = serviceId + '-detail-' + i;
+    if (t[key]) {
+      var li = document.createElement('li');
+      li.textContent = t[key];
+      list.appendChild(li);
+    }
   }
+
+  // Show modal
+  serviceModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
+
+function closeServiceModal() {
+  serviceModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Close on overlay click
+serviceModal.addEventListener('click', function(e) {
+  if (e.target === serviceModal) closeServiceModal();
+});
+
+// Close on ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServiceModal();
+});
 
 /* ---------- Footer year ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();

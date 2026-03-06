@@ -189,7 +189,7 @@
       <div class="services-square-grid">
 
         <!-- Card 1: Business Registration -->
-        <div class="service-square group reveal" onclick="toggleServiceCard(this)">
+        <div class="service-square group reveal" data-service="s1" onclick="openServiceModal(this)">
           <div class="card-header">
             <div class="square-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -204,23 +204,10 @@
           <div class="card-image">
             <img src="images/Business%20Registration.png" alt="Business Registration" />
           </div>
-          <div class="card-expanded">
-            <p class="detail-intro" data-i18n="s1-detail-intro">Expert legal guidance for company formation and compliance. We assist with:</p>
-            <ul class="detail-list">
-              <li data-i18n="s1-detail-1">Business Registration with the Colorado Secretary of State.</li>
-              <li data-i18n="s1-detail-2">EIN Application Assistance via the IRS webpage.</li>
-              <li data-i18n="s1-detail-3">Business License Guidance and document preparation as needed.</li>
-              <li data-i18n="s1-detail-4">Strategic advice on choosing the right business structure (LLC, Corp).</li>
-            </ul>
-            <button class="card-collapse-btn" onclick="event.stopPropagation(); toggleServiceCard(this.closest('.service-square'))">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z" clip-rule="evenodd" /></svg>
-              <span data-i18n="card-close">Close</span>
-            </button>
-          </div>
         </div>
 
         <!-- Card 2: Invoicing Setup -->
-        <div class="service-square group reveal" onclick="toggleServiceCard(this)">
+        <div class="service-square group reveal" data-service="s2" onclick="openServiceModal(this)">
           <div class="card-header">
             <div class="square-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -235,23 +222,10 @@
           <div class="card-image">
             <img src="images/Invoicing%20Setup.png" alt="Invoicing Setup" />
           </div>
-          <div class="card-expanded">
-            <p class="detail-intro" data-i18n="s2-detail-intro">Implementation of professional billing systems to ensure you get paid on time.</p>
-            <ul class="detail-list">
-              <li data-i18n="s2-detail-1">Create professional invoice templates customized for your brand.</li>
-              <li data-i18n="s2-detail-2">Set up digital invoicing systems to automate your billing process.</li>
-              <li data-i18n="s2-detail-3">Add your business logo and essential details for a premium look.</li>
-              <li data-i18n="s2-detail-4">Guidance on tracking payments and sending invoices directly to clients.</li>
-            </ul>
-            <button class="card-collapse-btn" onclick="event.stopPropagation(); toggleServiceCard(this.closest('.service-square'))">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z" clip-rule="evenodd" /></svg>
-              <span data-i18n="card-close">Close</span>
-            </button>
-          </div>
         </div>
 
         <!-- Card 3: Accounts Receivable -->
-        <div class="service-square group reveal" onclick="toggleServiceCard(this)">
+        <div class="service-square group reveal" data-service="s3" onclick="openServiceModal(this)">
           <div class="card-header">
             <div class="square-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -267,23 +241,10 @@
           <div class="card-image">
             <img src="images/Accounts%20Receivable.png" alt="Accounts Receivable" />
           </div>
-          <div class="card-expanded">
-            <p class="detail-intro" data-i18n="s3-detail-intro">Set up systems to track and manage the money customers owe your business.</p>
-            <ul class="detail-list">
-              <li data-i18n="s3-detail-1">Organize customer payment records to maintain a clear history.</li>
-              <li data-i18n="s3-detail-2">Monitor unpaid invoices to ensure no revenue is overlooked.</li>
-              <li data-i18n="s3-detail-3">Improve cash flow tracking by identifying payment trends.</li>
-              <li data-i18n="s3-detail-4">Maintain an up-to-date financial overview of your pending income.</li>
-            </ul>
-            <button class="card-collapse-btn" onclick="event.stopPropagation(); toggleServiceCard(this.closest('.service-square'))">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z" clip-rule="evenodd" /></svg>
-              <span data-i18n="card-close">Close</span>
-            </button>
-          </div>
         </div>
 
         <!-- Card 4: Accounts Payable -->
-        <div class="service-square group reveal" onclick="toggleServiceCard(this)">
+        <div class="service-square group reveal" data-service="s4" onclick="openServiceModal(this)">
           <div class="card-header">
             <div class="square-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -297,23 +258,10 @@
           <div class="card-image">
             <img src="images/Accounts%20Payable.png" alt="Accounts Payable" />
           </div>
-          <div class="card-expanded">
-            <p class="detail-intro" data-i18n="s4-detail-intro">Strategic organization of the bills and expenses your business must pay.</p>
-            <ul class="detail-list">
-              <li data-i18n="s4-detail-1">Track vendor invoices and manage payment schedules effectively.</li>
-              <li data-i18n="s4-detail-2">Organize business bills to avoid late payments and penalties.</li>
-              <li data-i18n="s4-detail-3">Categorize expenses to simplify tax preparation and financial reporting.</li>
-              <li data-i18n="s4-detail-4">Keep a clear record of all outgoing payments for better cash flow management.</li>
-            </ul>
-            <button class="card-collapse-btn" onclick="event.stopPropagation(); toggleServiceCard(this.closest('.service-square'))">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z" clip-rule="evenodd" /></svg>
-              <span data-i18n="card-close">Close</span>
-            </button>
-          </div>
         </div>
 
         <!-- Card 6: Bookkeeping Support -->
-        <div class="service-square group reveal" onclick="toggleServiceCard(this)">
+        <div class="service-square group reveal" data-service="s6" onclick="openServiceModal(this)">
           <div class="card-header">
             <div class="square-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -327,23 +275,10 @@
           <div class="card-image">
             <img src="images/Bookkeeping%20Support.png" alt="Bookkeeping Support" />
           </div>
-          <div class="card-expanded">
-            <p class="detail-intro" data-i18n="s6-detail-intro">Organized and accurate financial records to keep your business on track.</p>
-            <ul class="detail-list">
-              <li data-i18n="s6-detail-1">Record daily transactions to maintain an up-to-date financial history.</li>
-              <li data-i18n="s6-detail-2">Categorize income and expenses for clearer financial reporting.</li>
-              <li data-i18n="s6-detail-3">Prepare organized records ready for your accountant or tax professional.</li>
-              <li data-i18n="s6-detail-4">Identify financial trends to support smarter business decisions.</li>
-            </ul>
-            <button class="card-collapse-btn" onclick="event.stopPropagation(); toggleServiceCard(this.closest('.service-square'))">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z" clip-rule="evenodd" /></svg>
-              <span data-i18n="card-close">Close</span>
-            </button>
-          </div>
         </div>
 
         <!-- Card 7: Office Organization -->
-        <div class="service-square group reveal" onclick="toggleServiceCard(this)">
+        <div class="service-square group reveal" data-service="s7" onclick="openServiceModal(this)">
           <div class="card-header">
             <div class="square-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -357,23 +292,10 @@
           <div class="card-image">
             <img src="images/Office%20Organization.png" alt="Office Organization" />
           </div>
-          <div class="card-expanded">
-            <p class="detail-intro" data-i18n="s7-detail-intro">Efficient systems to bring order to your business files and documents.</p>
-            <ul class="detail-list">
-              <li data-i18n="s7-detail-1">Create a structured digital filing system for easy document access.</li>
-              <li data-i18n="s7-detail-2">Organize physical documents and records for quick retrieval.</li>
-              <li data-i18n="s7-detail-3">Implement consistent naming conventions and folder structures.</li>
-              <li data-i18n="s7-detail-4">Save time and reduce stress with well-organized business workflows.</li>
-            </ul>
-            <button class="card-collapse-btn" onclick="event.stopPropagation(); toggleServiceCard(this.closest('.service-square'))">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z" clip-rule="evenodd" /></svg>
-              <span data-i18n="card-close">Close</span>
-            </button>
-          </div>
         </div>
 
         <!-- Card 8: Notary Services -->
-        <div class="service-square group reveal" onclick="toggleServiceCard(this)">
+        <div class="service-square group reveal" data-service="s8" onclick="openServiceModal(this)">
           <div class="card-header">
             <div class="square-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -387,23 +309,10 @@
           <div class="card-image">
             <img src="images/Notary%20Services.png" alt="Notary Services" />
           </div>
-          <div class="card-expanded">
-            <p class="detail-intro" data-i18n="s8-detail-intro">Professional notarization to authenticate your important legal documents.</p>
-            <ul class="detail-list">
-              <li data-i18n="s8-detail-1">Notarize contracts, affidavits, powers of attorney, and other legal documents.</li>
-              <li data-i18n="s8-detail-2">Provide a secure, legally recognized notary seal and signature.</li>
-              <li data-i18n="s8-detail-3">Available for individuals and businesses in the Henderson, Colorado area.</li>
-              <li data-i18n="s8-detail-4">Bilingual notary services offered in both English and Spanish.</li>
-            </ul>
-            <button class="card-collapse-btn" onclick="event.stopPropagation(); toggleServiceCard(this.closest('.service-square'))">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z" clip-rule="evenodd" /></svg>
-              <span data-i18n="card-close">Close</span>
-            </button>
-          </div>
         </div>
 
         <!-- Card 9: Translation Assistance -->
-        <div class="service-square group reveal" onclick="toggleServiceCard(this)">
+        <div class="service-square group reveal" data-service="s9" onclick="openServiceModal(this)">
           <div class="card-header">
             <div class="square-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -416,19 +325,6 @@
           <div class="card-divider"></div>
           <div class="card-image">
             <img src="images/Translation%20Assistance.png" alt="Translation Assistance" />
-          </div>
-          <div class="card-expanded">
-            <p class="detail-intro" data-i18n="s9-detail-intro">Accurate English-Spanish translation support for your business communications.</p>
-            <ul class="detail-list">
-              <li data-i18n="s9-detail-1">Translate business documents, contracts, and correspondence with precision.</li>
-              <li data-i18n="s9-detail-2">Provide bilingual assistance during client meetings or consultations.</li>
-              <li data-i18n="s9-detail-3">Ensure clear communication between English and Spanish-speaking parties.</li>
-              <li data-i18n="s9-detail-4">Help you reach a broader, bilingual customer base with confidence.</li>
-            </ul>
-            <button class="card-collapse-btn" onclick="event.stopPropagation(); toggleServiceCard(this.closest('.service-square'))">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.47 7.72a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 01-1.06-1.06l7.5-7.5z" clip-rule="evenodd" /></svg>
-              <span data-i18n="card-close">Close</span>
-            </button>
           </div>
         </div>
 
@@ -705,6 +601,29 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===================== SERVICE MODAL ===================== -->
+  <div id="service-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeServiceModal()" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" />
+        </svg>
+      </button>
+      <div class="modal-image">
+        <img id="modal-img" src="" alt="" />
+      </div>
+      <div class="modal-header">
+        <div class="modal-icon" id="modal-icon"></div>
+        <h2 class="modal-title" id="modal-title"></h2>
+      </div>
+      <div class="modal-divider"></div>
+      <div class="modal-content">
+        <p class="modal-intro" id="modal-intro"></p>
+        <ul class="modal-list" id="modal-list"></ul>
+      </div>
+    </div>
+  </div>
 
   <!-- JS -->
   <script src="js/main.js"></script>
