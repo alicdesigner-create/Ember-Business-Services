@@ -146,6 +146,16 @@ const translations = {
     's9-detail-2': 'Provide bilingual assistance during client meetings or consultations.',
     's9-detail-3': 'Ensure clear communication between English and Spanish-speaking parties.',
     's9-detail-4': 'Help you reach a broader, bilingual customer base with confidence.',
+
+    /* Service — Personal Document Organization */
+    's10-title': 'Personal Document Organization',
+    's10-desc':  'Turn paper clutter into a simple, organized system.',
+    's10-detail-intro': 'I help individuals and families turn paper clutter into a simple, organized system so you always know where your important documents are.',
+    's10-detail-1': 'Sort and Categorize: We work together to organize bills, bank statements, and credit card records.',
+    's10-detail-2': 'Health & Tax Readiness: Organization of medical bills, insurance documents, and tax-related paperwork.',
+    's10-detail-3': 'Household Management: Systems for important notices and general household documents.',
+    's10-detail-4': 'Custom Filing Systems: Creation of physical or digital filing systems to reduce stress and save time.',
+    's10-detail-5': 'Goal: Ideal for preparing for tax season, managing household finances, or creating an organized home office.',
   },
 
   es: {
@@ -290,6 +300,16 @@ const translations = {
     's9-detail-2': 'Brinde asistencia bilingüe durante reuniones o consultas con clientes.',
     's9-detail-3': 'Garantice una comunicación clara entre partes de habla inglesa y española.',
     's9-detail-4': 'Ayúdele a llegar a una base de clientes bilingüe más amplia con confianza.',
+
+    /* Servicio — Organización de Documentos Personales */
+    's10-title': 'Organización de Documentos Personales',
+    's10-desc':  'Convierte el desorden de papeles en un sistema simple y organizado.',
+    's10-detail-intro': 'Ayudo a individuos y familias a convertir el desorden de papeles en un sistema simple y organizado para que siempre sepas dónde están tus documentos importantes.',
+    's10-detail-1': 'Clasificación y Categorización: Trabajamos juntos para organizar facturas, estados de cuenta bancarios y registros de tarjetas de crédito.',
+    's10-detail-2': 'Preparación para Salud e Impuestos: Organización de facturas médicas, documentos de seguro y papelería relacionada con impuestos.',
+    's10-detail-3': 'Gestión del Hogar: Sistemas para avisos importantes y documentos generales del hogar.',
+    's10-detail-4': 'Sistemas de Archivo Personalizados: Creación de sistemas de archivo físico o digital para reducir el estrés y ahorrar tiempo.',
+    's10-detail-5': 'Objetivo: Ideal para prepararse para la temporada de impuestos, gestionar las finanzas del hogar o crear una oficina en casa organizada.',
   }
 };
 
@@ -492,7 +512,7 @@ function openServiceModal(card) {
   // Bullet list
   var list = document.getElementById('modal-list');
   list.innerHTML = '';
-  for (var i = 1; i <= 4; i++) {
+  for (var i = 1; i <= 6; i++) {
     var key = serviceId + '-detail-' + i;
     if (t[key]) {
       var li = document.createElement('li');
