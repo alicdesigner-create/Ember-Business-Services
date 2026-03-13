@@ -92,11 +92,10 @@ const translations = {
     'card-close': 'Close',
 
     /* Service detail — Business Registration */
-    's1-detail-intro': 'Expert legal guidance for company formation and compliance. We assist with:',
+    's1-detail-intro': 'Guidance for company formation and compliance. We assist with:',
     's1-detail-1': 'Business Registration with the Colorado Secretary of State.',
     's1-detail-2': 'EIN Application Assistance via the IRS webpage.',
     's1-detail-3': 'Business License Guidance and document preparation as needed.',
-    's1-detail-4': 'Strategic advice on choosing the right business structure (LLC, Corp).',
 
     /* Service detail — Business Invoicing Setup */
     's2-detail-intro': 'Implementation of professional billing systems to ensure you get paid on time.',
@@ -124,7 +123,6 @@ const translations = {
     's6-detail-1': 'Record daily transactions to maintain an up-to-date financial history.',
     's6-detail-2': 'Categorize income and expenses for clearer financial reporting.',
     's6-detail-3': 'Prepare organized records ready for your accountant or tax professional.',
-    's6-detail-4': 'Identify financial trends to support smarter business decisions.',
 
     /* Service detail — Office Organization */
     's7-detail-intro': 'Efficient systems to bring order to your business files and documents.',
@@ -137,7 +135,7 @@ const translations = {
     's8-detail-intro': 'Professional notarization to authenticate your important legal documents.',
     's8-detail-1': 'Notarize contracts, affidavits, powers of attorney, and other legal documents.',
     's8-detail-2': 'Provide a secure, legally recognized notary seal and signature.',
-    's8-detail-3': 'Available for individuals and businesses in the Henderson, Colorado area.',
+    's8-detail-3': 'Available for individuals and businesses in Colorado.',
     's8-detail-4': 'Bilingual notary services offered in both English and Spanish.',
 
     /* Service detail — Translation Assistance */
@@ -246,11 +244,10 @@ const translations = {
     'card-close': 'Cerrar',
 
     /* Service detail — Registro de Negocios */
-    's1-detail-intro': 'Orientación legal experta para la formación y cumplimiento de su empresa. Le asistimos con:',
+    's1-detail-intro': 'Orientación para la formación y cumplimiento de su empresa. Le asistimos con:',
     's1-detail-1': 'Registro del negocio ante la Secretaría de Estado de Colorado.',
     's1-detail-2': 'Asistencia en la solicitud de EIN a través de la página del IRS.',
     's1-detail-3': 'Orientación para licencias comerciales y preparación de documentos.',
-    's1-detail-4': 'Asesoría estratégica para elegir la estructura empresarial correcta (LLC, Corp).',
 
     /* Service detail — Configuración de Facturas */
     's2-detail-intro': 'Implementación de sistemas de facturación profesional para garantizar que reciba sus pagos a tiempo.',
@@ -278,7 +275,6 @@ const translations = {
     's6-detail-1': 'Registre transacciones diarias para mantener un historial financiero actualizado.',
     's6-detail-2': 'Categorice ingresos y gastos para reportes financieros más claros.',
     's6-detail-3': 'Prepare registros organizados y listos para su contador o profesional de impuestos.',
-    's6-detail-4': 'Identifique tendencias financieras para apoyar decisiones comerciales más inteligentes.',
 
     /* Service detail — Organización de Oficina */
     's7-detail-intro': 'Sistemas eficientes para poner orden en los archivos y documentos de su negocio.',
@@ -291,7 +287,7 @@ const translations = {
     's8-detail-intro': 'Notarización profesional para autenticar sus documentos legales importantes.',
     's8-detail-1': 'Notarice contratos, declaraciones juradas, poderes notariales y otros documentos legales.',
     's8-detail-2': 'Proporcione un sello y firma notarial seguro y legalmente reconocido.',
-    's8-detail-3': 'Disponible para individuos y empresas en el área de Henderson, Colorado.',
+    's8-detail-3': 'Disponible para individuos y empresas en Colorado.',
     's8-detail-4': 'Servicios de notaría bilingüe en inglés y español.',
 
     /* Service detail — Asistencia de Traducción */
