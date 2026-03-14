@@ -42,7 +42,7 @@ const translations = {
     's2-desc':  'Professional invoicing so you get paid on time.',
     's3-title': 'Accounts Receivable',
     's3-desc':  'Track money owed so nothing slips through.',
-    's4-title': 'Accounts Payable',
+    's4-title': 'Accounts Payable & Payroll',
     's4-desc':  'Outgoing payments organized and on schedule.',
     's5-title': 'Budget Spreadsheets',
     's5-desc':  'Custom spreadsheets for income, expenses, and goals.',
@@ -111,12 +111,12 @@ const translations = {
     's3-detail-3': 'Improve cash flow tracking by identifying payment trends.',
     's3-detail-4': 'Maintain an up-to-date financial overview of your pending income.',
 
-    /* Service detail — Accounts Payable */
-    's4-detail-intro': 'Strategic organization of the bills and expenses your business must pay.',
-    's4-detail-1': 'Track vendor invoices and manage payment schedules effectively.',
-    's4-detail-2': 'Organize business bills to avoid late payments and penalties.',
-    's4-detail-3': 'Categorize expenses to simplify tax preparation and financial reporting.',
-    's4-detail-4': 'Keep a clear record of all outgoing payments for better cash flow management.',
+    /* Service detail — Accounts Payable & Payroll */
+    's4-detail-intro': 'Strategic management of business obligations and workforce compensation.',
+    's4-detail-1': 'Full-Cycle Accounts Payable: Efficient tracking of vendor invoices and payment schedules to avoid late fees and penalties.',
+    's4-detail-2': 'Payroll & Time Tracking Integration: Implementation of synchronized systems using Zoho, QuickBooks, and TSheets for seamless employee tracking.',
+    's4-detail-3': 'Expense Categorization: Precise classification of business costs to simplify tax preparation and financial reporting.',
+    's4-detail-4': 'Automated Disbursements: Streamlined outgoing payment records to ensure accurate cash flow management and payroll processing.',
 
     /* Service detail — Bookkeeping Support */
     's6-detail-intro': 'Organized and accurate financial records to keep your business on track.',
@@ -194,7 +194,7 @@ const translations = {
     's2-desc':  'Facturación profesional para recibir pagos a tiempo.',
     's3-title': 'Cuentas por Cobrar',
     's3-desc':  'Rastree el dinero que le deben sin que nada se pierda.',
-    's4-title': 'Cuentas por Pagar',
+    's4-title': 'Cuentas por Pagar y Nómina',
     's4-desc':  'Pagos organizados y al día con sus proveedores.',
     's5-title': 'Presupuestos Empresariales',
     's5-desc':  'Hojas de cálculo para ingresos, gastos y metas.',
@@ -263,12 +263,12 @@ const translations = {
     's3-detail-3': 'Mejore el seguimiento del flujo de caja identificando tendencias de pago.',
     's3-detail-4': 'Mantenga un panorama financiero actualizado de sus ingresos pendientes.',
 
-    /* Service detail — Cuentas por Pagar */
-    's4-detail-intro': 'Organización estratégica de las facturas y gastos que su negocio debe pagar.',
-    's4-detail-1': 'Rastree facturas de proveedores y gestione calendarios de pago de forma eficiente.',
-    's4-detail-2': 'Organice las cuentas del negocio para evitar pagos tardíos y penalizaciones.',
-    's4-detail-3': 'Categorice los gastos para simplificar la preparación de impuestos e informes financieros.',
-    's4-detail-4': 'Mantenga un registro claro de todos los pagos realizados para una mejor gestión del flujo de caja.',
+    /* Service detail — Cuentas por Pagar y Nómina */
+    's4-detail-intro': 'Gestión estratégica de las obligaciones del negocio y la compensación del personal.',
+    's4-detail-1': 'Cuentas por Pagar Ciclo Completo: Seguimiento eficiente de facturas de proveedores y calendarios de pago para evitar cargos por mora y penalizaciones.',
+    's4-detail-2': 'Integración de Nómina y Control de Tiempo: Implementación de sistemas sincronizados con Zoho, QuickBooks y TSheets para un seguimiento fluido del personal.',
+    's4-detail-3': 'Categorización de Gastos: Clasificación precisa de los costos del negocio para simplificar la preparación de impuestos e informes financieros.',
+    's4-detail-4': 'Desembolsos Automatizados: Registros de pagos salientes optimizados para garantizar una gestión precisa del flujo de caja y el procesamiento de nómina.',
 
     /* Service detail — Apoyo Contable */
     's6-detail-intro': 'Registros financieros organizados y precisos para mantener su negocio en orden.',
