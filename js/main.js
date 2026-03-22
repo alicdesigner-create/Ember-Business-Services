@@ -75,14 +75,14 @@ const translations = {
     'ci-lang-label':    'Languages',
     'ci-lang-value':    'English & Spanish',
     'contact-btn-call': 'Call Now: 720-948-6244',
-    'form-title':            'Send a Message',
+    'form-title':            'Send Email',
     'form-name-label':       'Name',
     'form-name-placeholder': 'Your full name',
     'form-email-label':      'Email',
     'form-email-placeholder':'your@email.com',
     'form-message-label':    'Message',
     'form-message-placeholder': 'Tell us about your business and how we can help...',
-    'form-submit':   'Send Message',
+    'form-submit':   'Send Email',
     'form-success':  'Thank you! Your message has been sent. We\'ll be in touch soon.',
 
     /* Footer */
@@ -227,14 +227,14 @@ const translations = {
     'ci-lang-label':    'Idiomas',
     'ci-lang-value':    'Inglés y Español',
     'contact-btn-call': 'Llamar Ahora: 720-948-6244',
-    'form-title':            'Enviar un Mensaje',
+    'form-title':            'Enviar Email',
     'form-name-label':       'Nombre',
     'form-name-placeholder': 'Su nombre completo',
     'form-email-label':      'Correo Electrónico',
     'form-email-placeholder':'su@correo.com',
     'form-message-label':    'Mensaje',
     'form-message-placeholder': 'Cuéntenos sobre su negocio y cómo podemos ayudarle...',
-    'form-submit':   'Enviar Mensaje',
+    'form-submit':   'Enviar Email',
     'form-success':  '¡Gracias! Su mensaje ha sido enviado. Nos pondremos en contacto pronto.',
 
     /* Footer */
