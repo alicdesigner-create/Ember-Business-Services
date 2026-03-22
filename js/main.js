@@ -84,6 +84,7 @@ const translations = {
     'form-message-placeholder': 'Tell us about your business and how we can help...',
     'form-submit':   'Send Email',
     'form-success':  'Thank you! Your message has been sent. We\'ll be in touch soon.',
+    'form-error':    'Something went wrong. Please try again or contact us by phone.',
 
     /* Footer */
     'footer-rights': 'All rights reserved.',
@@ -236,6 +237,7 @@ const translations = {
     'form-message-placeholder': 'Cuéntenos sobre su negocio y cómo podemos ayudarle...',
     'form-submit':   'Enviar Email',
     'form-success':  '¡Gracias! Su mensaje ha sido enviado. Nos pondremos en contacto pronto.',
+    'form-error':    'Algo salió mal. Por favor intente de nuevo o contáctenos por teléfono.',
 
     /* Footer */
     'footer-rights': 'Todos los derechos reservados.',
@@ -402,28 +404,59 @@ document.querySelectorAll('.service-square, .step-card, .stat-square, .contact-i
 });
 
 /* ---------- Contact Form ---------- */
-function handleFormSubmit(e) {
+const SUPABASE_URL      = 'https://quwbtbtxaviodypxfywe.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1d2J0YnR4YXZpb2R5cHhmeXdlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIyMDk0NDAsImV4cCI6MjA1Nzc4NTQ0MH0.ZVWP4SQTuso2Lidmf7f6N8tIvdCxdF7l70QkjAIOZLQ';
+
+async function handleFormSubmit(e) {
   e.preventDefault();
 
   const btn     = document.getElementById('form-submit-btn');
   const success = document.getElementById('form-success');
+  const errDiv  = document.getElementById('form-error');
 
-  // Simple feedback (no real backend — swap for your email service)
+  const name    = document.getElementById('form-name').value.trim();
+  const email   = document.getElementById('form-email').value.trim();
+  const message = document.getElementById('form-message').value.trim();
+
+  // Reset feedback
+  success.classList.add('hidden');
+  errDiv.classList.add('hidden');
+
+  // Loading state
   btn.disabled = true;
   btn.style.opacity = '0.6';
 
-  setTimeout(() => {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+      },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok || data.error) {
+      throw new Error(data.error || 'Request failed');
+    }
+
     document.getElementById('contact-form').reset();
+    success.textContent = translations[currentLanguage]['form-success'];
     success.classList.remove('hidden');
+    setTimeout(() => success.classList.add('hidden'), 6000);
+
+  } catch (err) {
+    console.error('Form error:', err);
+    errDiv.textContent = translations[currentLanguage]['form-error'];
+    errDiv.classList.remove('hidden');
+    setTimeout(() => errDiv.classList.add('hidden'), 6000);
+
+  } finally {
     btn.disabled = false;
     btn.style.opacity = '1';
-
-    // Update success message text based on current language
-    success.textContent = translations[currentLanguage]['form-success'];
-
-    // Hide after 5 seconds
-    setTimeout(() => success.classList.add('hidden'), 5000);
-  }, 800);
+  }
 }
 
 /* ---------- Global Subtle Parallax ---------- */
